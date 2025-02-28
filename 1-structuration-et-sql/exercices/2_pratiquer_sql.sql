@@ -116,6 +116,7 @@ INSERT INTO likes (utilisateur_id, publication_id) VALUES
 -- 💡 Indice: Utilisez LIKE avec le caractère joker %
 
 -- Écrivez votre requête ci-dessous:
+    SELECT * FROM utilisateurs WHERE nom LIKE '%a%';
 
 
 
@@ -123,6 +124,8 @@ INSERT INTO likes (utilisateur_id, publication_id) VALUES
 -- 💡 Indice: Utilisez INSERT INTO ... VALUES
 
 -- Écrivez votre requête ci-dessous:
+    INSERT INTO utilisateurs (nom, email, mot_de_passe)
+    VALUES ('Daniel Hinojosa', 'daniel.hinojosa', 'kfkjshfkhfklshfklqjshdf');
 
 
 
@@ -130,6 +133,7 @@ INSERT INTO likes (utilisateur_id, publication_id) VALUES
 -- 💡 Indice: Utilisez UPDATE ... SET ... WHERE
 
 -- Écrivez votre requête ci-dessous:
+    UPDATE utilisateurs SET email='gwen.bussac@email.com' WHERE id=2;
 
 
 
@@ -137,6 +141,8 @@ INSERT INTO likes (utilisateur_id, publication_id) VALUES
 -- 💡 Indice: Utilisez DELETE FROM ... WHERE
 
 -- Écrivez votre requête ci-dessous:
+    DELETE FROM publications WHERE id=4;
+
 
 
 
@@ -146,6 +152,11 @@ INSERT INTO likes (utilisateur_id, publication_id) VALUES
 -- 💡 Indice: Utilisez LEFT JOIN, COUNT et GROUP BY
 
 -- Écrivez votre requête ci-dessous:
+    SELECT publications.id, publications.contenu,
+    COUNT(commentaires.id) as nombre_commentaires
+    FROM publications
+    LEFT JOIN commentaires ON publications.id=commentaires.publication_id
+    GROUP BY publications.id;
 
 
 
@@ -153,6 +164,12 @@ INSERT INTO likes (utilisateur_id, publication_id) VALUES
 -- 💡 Indice: Utilisez JOIN, GROUP BY, COUNT et ORDER BY
 
 -- Écrivez votre requête ci-dessous:
+    SELECT likes.id, likes.publication_id, publications.contenu, utilisateurs.nom,
+    COUNT(likes.id) as nbr_likes
+    FROM likes
+    JOIN publications ON likes.publication_id=publications.id
+    JOIN utilisateurs ON publications.utilisateur_id=utilisateurs.id
+    GROUP BY likes.id;
 
 
 
