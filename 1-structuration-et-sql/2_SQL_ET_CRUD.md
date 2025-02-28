@@ -1,5 +1,9 @@
 ## 🗄️ Partie 3: CRUD et SQL
 
+Une requête SQL est une **commande** permettant de **récupérer, insérer, mettre à jour ou supprimer** des données dans une base de données. Elle suit une **structure logique** qui combine différentes instructions pour obtenir le résultat voulu.
+
+Voici comment nous allons construire une requête SQL **pas à pas**, en utilisant notre base de données.
+
 ### Comprendre le CRUD 🌐
 
 CRUD représente les 4 opérations fondamentales pour manipuler des données:
